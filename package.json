@@ -28,8 +28,8 @@
     "build": "del-cli dist & tsc --build tsconfig.json",
     "audit-fix": "npm audit fix --force & npm install"
   },
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "main": "dist/src/index.js",
+  "types": "dist/src/index.d.ts",
   "directories": {
     "dist": "dist"
   },
