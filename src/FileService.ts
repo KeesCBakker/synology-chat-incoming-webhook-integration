@@ -52,7 +52,7 @@ export class FileServerService {
 		this.app.use(helmet());
 
 		if (this.verbose) {
-			this.app.use(function (req, res, next) {
+			this.app.use((req, _, next) => {
 				var filename = path.basename(req.url);
 				this.log(`The file ${filename} was requested.`);
 				next();
