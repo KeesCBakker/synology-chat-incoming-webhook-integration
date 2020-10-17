@@ -1,6 +1,6 @@
 {
   "name": "synology-chat-imcoming-webhook-integration",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "private": false,
   "author": "Kees C. Bakker",
   "description": "Easy setup of the incoming webhook integration for Synology Chat.",
@@ -23,8 +23,8 @@
     "node": "0.10.x"
   },
   "scripts": {
-	 "test": "exit 0",
-	 "patch": "npm run build & npm version patch & npm publish",
+    "test": "exit 0",
+    "patch": "npm run build & npm version patch & npm publish",
     "build": "del-cli dist & tsc --build tsconfig.json",
     "audit-fix": "npm audit fix --force & npm install"
   },
