@@ -100,9 +100,8 @@ export class FileServerService {
 		const ext = path.extname(filePath);
 		const rnd = this.createRandomFileName(ext);
 
-		this.log(`Copy "${filePath}" to "${rnd.fullPath}"...`);
 		fs.copyFileSync(filePath, rnd.fullPath);
-		this.log(`Serving on: ${rnd.url}`);
+		this.log(`Serving new file on: ${rnd.url}`);
 
 		return rnd.url;
 	}

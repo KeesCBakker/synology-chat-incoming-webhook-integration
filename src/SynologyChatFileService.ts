@@ -30,12 +30,10 @@ export class SynologyChatFileService {
 
 		if (message.buffer) {
 			const url = this.fileService.serveBuffer(message.buffer, message.bufferExtension);
-			this.log("Serving buffer under: " + url);
 			message.fileUrl = url;
 		}
 		else if (message.filePath) {
 			const url = this.fileService.serve(message.filePath);
-			console.log("Serving file path under: " + url);
 			message.fileUrl = url;
 		}
 
