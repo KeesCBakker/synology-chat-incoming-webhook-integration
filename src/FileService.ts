@@ -29,7 +29,8 @@ export class FileServerService {
 	 */
 	constructor(
 		private readonly port: number,
-		private readonly baseUrl: string) {
+		private readonly baseUrl: string,
+		private readonly verbose: boolean) {
 	}
 
 	/**
@@ -49,8 +50,18 @@ export class FileServerService {
 
 		this.app = express()
 		this.app.use(helmet());
+
+		if (this.verbose) {
+			this.app.use(function (req, res, next) {
+				var filename = path.basename(req.url);
+				this.log(`The file ${filename} was requested.`);
+				next();
+			});
+		}
 		this.app.use(express.static(this.directory.name))
-		this.app.listen(this.port, () => { });
+		this.app.listen(this.port, () => {
+			this.log("Express server started on port " + this.port);
+		});
 	}
 
 	private createRandomFileName(ext: string) {
@@ -88,7 +99,10 @@ export class FileServerService {
 
 		const ext = path.extname(filePath);
 		const rnd = this.createRandomFileName(ext);
+
+		this.log(`Copy "${filePath}" to "${rnd.fullPath}"...`);
 		fs.copyFileSync(filePath, rnd.fullPath);
+		this.log(`Serving on: ${rnd.url}`);
 
 		return rnd.url;
 	}
@@ -131,5 +145,12 @@ export class FileServerService {
 		this.directory = null;
 		this.app.close();
 		this.isStarted = false;
+	}
+
+
+	private log(text: string) {
+		if (this.verbose) {
+			console.log(text);
+		}
 	}
 }

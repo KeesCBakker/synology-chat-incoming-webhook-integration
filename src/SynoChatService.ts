@@ -19,7 +19,7 @@ export class SynoChatIncomingWebhookService {
 	 */
 	constructor(private incomingUrl: string) {
 
-		if(!INCOMING_URL_REGEX.test(incomingUrl)){
+		if (!INCOMING_URL_REGEX.test(incomingUrl)) {
 			throw new Error(`Invalid incoming url, it should have this patern:
 {http or https}://{url or ip}/webapi/entry.cgi?api=SYNO.Chat.External&method=incoming&version=2&token=%22{your-token}%22,
 `)
@@ -34,13 +34,13 @@ export class SynoChatIncomingWebhookService {
 	 *
 	 * @memberOf SynoChatIncomingWebhookService
 	 */
-	async send(text: string, fileUrl: string|null = null) {
+	async send(text: string, fileUrl: string | null = null) {
 
 		const data = {
 			"text": text,
 		} as any;
 
-		if(fileUrl){
+		if (fileUrl) {
 			data.file_url = fileUrl;
 		}
 
@@ -54,8 +54,8 @@ export class SynoChatIncomingWebhookService {
 
 		const answer = await response.json();
 
-		if(answer.errors){
-			throw new Error("Error while comunicating with Synology Chat. " + JSON.stringify(response.errors) )
+		if (answer.errors) {
+			throw new Error("Error while comunicating with Synology Chat. " + JSON.stringify(response.errors))
 		}
 
 	}

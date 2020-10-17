@@ -15,7 +15,7 @@ export class SynologyChatFileService {
 	) {
 
 		this.chatService = new SynoChatIncomingWebhookService(incomingUrl);
-		this.fileService = new FileServerService(port, baseUrl);
+		this.fileService = new FileServerService(port, baseUrl, this.verbose);
 	}
 
 	async send(
