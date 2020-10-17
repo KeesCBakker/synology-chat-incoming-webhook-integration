@@ -1,5 +1,4 @@
 import fetch from 'node-fetch'
-import { file } from 'tmp';
 
 const INCOMING_URL_REGEX = /https?:\/\/.*?\/webapi\/entry\.cgi\?api=SYNO\.Chat\.External&method=incoming&version=2&token=%22.*%22/
 
