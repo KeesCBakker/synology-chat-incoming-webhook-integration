@@ -50,11 +50,11 @@ export class SynoChatFileService {
 		}
 
 		if (message.buffer) {
-			const url = this.fileService.serveBuffer(message.buffer, message.bufferExtension);
+			const url = await this.fileService.serveBuffer(message.buffer, message.bufferExtension);
 			message.fileUrl = url;
 		}
 		else if (message.filePath) {
-			const url = this.fileService.serve(message.filePath);
+			const url = await this.fileService.serve(message.filePath);
 			message.fileUrl = url;
 		}
 

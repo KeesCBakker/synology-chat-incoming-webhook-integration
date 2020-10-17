@@ -41,7 +41,7 @@ export class FileServerService {
 	 *
 	 * @memberOf FileServerService
 	 */
-	start(): void {
+	start(): Promise<void> {
 
 		if (this.isStarted) return;
 
@@ -59,8 +59,12 @@ export class FileServerService {
 			});
 		}
 		this.app.use(express.static(this.directory.name))
-		this.app.listen(this.port, () => {
-			this.log("Express server started on port " + this.port);
+
+		return new Promise<void>(resolve => {
+			this.app.listen(this.port, () => {
+				this.log("Express server started on port " + this.port);
+				resolve();
+			});
 		});
 	}
 
@@ -94,8 +98,8 @@ export class FileServerService {
 	 *
 	 * @memberOf FileServerService
 	 */
-	serve(filePath: string) {
-		this.start();
+	async serve(filePath: string) {
+		await this.start();
 
 		const ext = path.extname(filePath);
 		const rnd = this.createRandomFileName(ext);
@@ -117,7 +121,7 @@ export class FileServerService {
 	 *
 	 * @memberOf FileServerService
 	 */
-	serveBuffer(buffer: Buffer, extension: string) {
+	async serveBuffer(buffer: Buffer, extension: string) {
 
 		if (!extension) {
 			extension = "";
@@ -126,10 +130,13 @@ export class FileServerService {
 			extension = "." + extension;
 		}
 
+		await this.start();
+
 		const rnd = this.createRandomFileName(extension);
 		const f = fs.openSync(rnd.fullPath, "w");
 		fs.writeSync(f, buffer);
 		fs.closeSync(f);
+
 
 		return rnd.url;
 	}

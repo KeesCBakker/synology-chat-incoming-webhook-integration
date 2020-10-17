@@ -1,5 +1,5 @@
 {
-  "name": "synology-chat-imcoming-webhook-integration",
+  "name": "synology-chat-incoming-webhook",
   "version": "0.0.14",
   "private": false,
   "author": "Kees C. Bakker",

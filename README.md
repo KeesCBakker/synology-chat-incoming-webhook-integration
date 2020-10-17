@@ -8,7 +8,7 @@ This package helps with sending files to your Synology Chat. It uses the _incomi
 The easy way:
 
 ```js
-const { createSynoChatFileService } = 'synology-chat-imcoming-webhook-integration'
+const { createSynoChatFileService } = 'synology-chat-incoming-webhook'
 const chat = createSynoChatFileService();
 
 // text
@@ -46,7 +46,7 @@ It will get the configuration from your environment variables or infer them:
 ## Advanced
 Create and configure you own service:
 ```js
-const { SynoChatFileService } = 'synology-chat-imcoming-webhook-integration'
+const { SynoChatFileService } = 'synology-chat-incoming-webhook'
 const chat = new SynoChatFileService(
 	8033,
 	"http://192.168.1.13:8033",
@@ -55,7 +55,7 @@ const chat = new SynoChatFileService(
 ```
 Or don't use the file server:
 ```js
-const { SynoChatService } = 'synology-chat-imcoming-webhook-integration'
+const { SynoChatService } = 'synology-chat-incoming-webhook'
 const chat = new SynoChatService(
 	"{http or https}://{url or ip}/webapi/entry.cgi?api=SYNO.Chat.External&method=incoming&version=2&token=%22{your-token}%22"
 )
@@ -79,5 +79,6 @@ When sending a local file or a memory buffer, the following happens:
 - The local file or buffer is copied to a new file in the temporary directory with a random file name.
 - The URL is send to Synology. Synology will download the file from the web server.
 - When the server is stopped, the directory will be deleted as well.
+
 
 
