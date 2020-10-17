@@ -1,4 +1,5 @@
 import { networkInterfaces } from 'os';
+
 const nets = networkInterfaces();
 const addresses = new Array<string>();
 

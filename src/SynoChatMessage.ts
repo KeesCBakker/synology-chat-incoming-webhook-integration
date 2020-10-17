@@ -1,14 +1,14 @@
 /**
  * Chat message for Synology Chat.
  *
- * @interface SynologyChatMessage
+ * @interface SynoChatMessage
  */
-export interface SynologyChatMessage {
+export interface SynoChatMessage {
 	/**
 	 * The text message. When sending a file, it is optional.
 	 *
 	 * @type {string} The text.
-	 * @memberOf SynologyChatMessage
+	 * @memberOf SynoChatMessage
 	 */
 	text?: string;
 
@@ -16,7 +16,7 @@ export interface SynologyChatMessage {
 	 * A file in the form of a buffer.
 	 *
 	 * @type {Buffer} The buffer.
-	 * @memberOf SynologyChatMessage
+	 * @memberOf SynoChatMessage
 	 */
 	buffer?: Buffer;
 
@@ -25,7 +25,7 @@ export interface SynologyChatMessage {
 	 * file name.
 	 *
 	 * @type {string} The extension.
-	 * @memberOf SynologyChatMessage
+	 * @memberOf SynoChatMessage
 	 */
 	bufferExtension?: string;
 
@@ -33,7 +33,7 @@ export interface SynologyChatMessage {
 	 * The local file path of the file to send.
 	 *
 	 * @type {string} The local file path.
-	 * @memberOf SynologyChatMessage
+	 * @memberOf SynoChatMessage
 	 */
 	filePath?: string;
 
@@ -41,7 +41,7 @@ export interface SynologyChatMessage {
 	 * The file url to send.
 	 *
 	 * @type {string} URL of the file, should be accessible by Synology.
-	 * @memberOf SynologyChatMessage
+	 * @memberOf SynoChatMessage
 	 */
 	fileUrl?: string;
 }

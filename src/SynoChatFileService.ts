@@ -1,12 +1,26 @@
 import { SynoChatIncomingWebhookService } from './SynoChatService';
 import { FileServerService } from './FileService';
-import { SynologyChatMessage } from './SynologyChatMessage';
+import { SynoChatMessage } from './SynoChatMessage';
 
-
-export class SynologyChatFileService {
+/**
+ * Service for sending chats to Synology with (local) files.
+ *
+ * @export
+ * @class SynoChatFileService
+ */
+export class SynoChatFileService {
 	private fileService: FileServerService;
 	private chatService: SynoChatIncomingWebhookService;
 
+	/**
+	 * Creates an instance of SynoChatFileService.
+	 * @param {number} port The port.
+	 * @param {string} baseUrl The base URL that is used to call this service externally.
+	 * @param {string} incomingUrl The incoming webhook from Synology Chat.
+	 * @param {boolean} verbose True if verbose; otherwise false.
+	 *
+	 * @memberOf SynoChatFileService
+	 */
 	constructor(
 		port: number,
 		baseUrl: string,
@@ -18,8 +32,15 @@ export class SynologyChatFileService {
 		this.fileService = new FileServerService(port, baseUrl, this.verbose);
 	}
 
+	/**
+	 * Sends a message to the Synology Chat.
+	 *
+	 * @param {(string | SynoChatMessage)} message The message.
+	 *
+	 * @memberOf SynoChatFileService
+	 */
 	async send(
-		message: string | SynologyChatMessage
+		message: string | SynoChatMessage
 	) {
 
 		if (typeof message === 'string' || message instanceof String) {
