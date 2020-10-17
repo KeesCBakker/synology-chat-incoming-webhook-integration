@@ -1,5 +1,5 @@
 src
 tsconfig.json
 .gitattributes
-.editor-config
+.editorconfig
 .code-workspace
