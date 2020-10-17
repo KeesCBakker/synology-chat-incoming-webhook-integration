@@ -1,0 +1,23 @@
+{
+	"compileOnSave": true,
+	"compilerOptions": {
+		"target": "es6",
+		"module": "commonjs",
+		"declarationMap": true,
+		"declaration": true,
+		"sourceMap": true,
+		"strict": false,
+		"outDir": "dist",
+		"rootDir": ".",
+		"removeComments": false,
+		"esModuleInterop" : true
+	},
+	"include": [
+		"src/**/*.ts",
+		"test/**/*.ts"
+	],
+	"exclude": [
+		"node_modules",
+		"dist"
+	]
+}
