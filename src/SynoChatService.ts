@@ -53,6 +53,7 @@ export class SynoChatIncomingWebhookService {
 		});
 
 		const answer = await response.json();
+		console.log(answer);
 
 		if (answer.errors) {
 			throw new Error("Error while comunicating with Synology Chat. " + JSON.stringify(response.errors))
