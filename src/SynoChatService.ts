@@ -1,4 +1,5 @@
 import fetch from 'node-fetch'
+import { file } from 'tmp';
 
 const INCOMING_URL_REGEX = /https?:\/\/.*?\/webapi\/entry\.cgi\?api=SYNO\.Chat\.External&method=incoming&version=2&token=%22.*%22/
 
@@ -53,10 +54,16 @@ export class SynoChatIncomingWebhookService {
 		});
 
 		const answer = await response.json();
-		console.log(answer);
+		if (answer.error) {
 
-		if (answer.errors) {
-			throw new Error("Error while comunicating with Synology Chat. " + JSON.stringify(response.errors))
+			let msg = "Error while comunicating with Synology Chat.";
+			msg += "\n" + JSON.stringify(answer.error)
+
+			if (answer.error.code == 117 && fileUrl && fileUrl.startsWith("http://127.0.0.1")) {
+				msg = "\nHint: when running locally make sure you use the IP of your computer in the SCIWI_FILE_SERVER_BASE_URL.";
+			}
+
+			throw new Error(msg);
 		}
 
 	}
