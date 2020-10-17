@@ -3,17 +3,17 @@ import { SynologyChatFileService } from './SynologyChatFileService';
 import { SynoChatIncomingWebhookService } from './SynoChatService';
 
 export function createSynologyChatFileService() {
-	const port = <any>process.env.PORT || 8033;
-	const baseUrl = process.env.FILE_SERVER_BASE_URL || "http://127.0.0.1:" + port;
-	const incomingUrl = process.env.SYNOLOGY_CHAT_INCOMING_URL;
+	const port = <any>process.env.SCIWI_FILE_SERVER_PORT || 8033;
+	const baseUrl = process.env.SCIWI_FILE_SERVER_BASE_URL || "http://127.0.0.1:" + port;
+	const incomingUrl = process.env.SCIWI_SYNOLOGY_CHAT_INCOMING_URL;
 
 	let verbose = true;
 
-	if (process.env.VERBOSE) {
-		if (process.env.VERBOSE in ["1", "true", "TRUE"]) {
+	if (process.env.SCIWI_VERBOSE) {
+		if (process.env.SCIWI_VERBOSE in ["1", "true", "TRUE"]) {
 			verbose = true;
 		}
-		else if (process.env.VERBOSE in ["0", "false", "FALSE"]) {
+		else if (process.env.SCIWI_VERBOSE in ["0", "false", "FALSE"]) {
 			verbose = false;
 		}
 	}
