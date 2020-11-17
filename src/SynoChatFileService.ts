@@ -1,6 +1,6 @@
-import { SynoChatIncomingWebhookService } from './SynoChatService';
-import { FileServerService } from './FileServerService';
-import { SynoChatMessage } from './SynoChatMessage';
+import { SynoChatIncomingWebhookService } from './api/SynoChatService';
+import { FileServerService } from './hosting/FileServerService';
+import { SynoChatMessage } from './api/SynoChatMessage';
 
 /**
  * Service for sending chats to Synology with (local) files.

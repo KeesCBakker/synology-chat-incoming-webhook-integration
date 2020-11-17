@@ -1,9 +1,9 @@
 import express from 'express';
 import fs from 'fs';
+import helmet from 'helmet';
 import path from 'path';
 import tmp from 'tmp';
 import { v4 } from 'uuid';
-import helmet from 'helmet'
 
 /**
  * The file server will host files in a temporary directory. When it is
