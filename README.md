@@ -23,7 +23,7 @@ await chat.send({
 // remote file
 await chat.send({
 	text: "Sending a file url",
-	fileUrl: ""
+	fileUrl: "https://keestalkstech.com/wp-content/uploads/2020/08/photo-1577138967570-266667b3deed-1200x675.jpg"
 });
 
 // memory buffer

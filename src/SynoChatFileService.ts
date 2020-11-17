@@ -1,5 +1,5 @@
 import { SynoChatIncomingWebhookService } from './SynoChatService';
-import { FileServerService } from './FileService';
+import { FileServerService } from './FileServerService';
 import { SynoChatMessage } from './SynoChatMessage';
 
 /**

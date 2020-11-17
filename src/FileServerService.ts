@@ -75,7 +75,9 @@ export class FileServerService {
 		do {
 			fileName = v4().replace("-", "");
 			fileName = Buffer.from(fileName, 'hex').toString('base64')
-			fileName = fileName.replace(/[+/=]/g, "--");
+			fileName = fileName.replace(/\=]/g, "---");
+			fileName = fileName.replace(/\//g, "--");
+			fileName = fileName.replace(/\+/g, "-");
 			fileName += ext;
 			fullPath = path.join(this.directory.name, fileName);
 		}

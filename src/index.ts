@@ -1,4 +1,4 @@
-import { FileServerService } from './FileService';
+import { FileServerService } from './FileServerService';
 import { SynoChatFileService } from './SynoChatFileService';
 import { SynoChatIncomingWebhookService } from './SynoChatService';
 import { getIp } from "./ip"
