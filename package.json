@@ -31,7 +31,7 @@
 	"scripts": {
 		"test": "npm run mocha --recursive test/**/*.spec.ts --exit",
 		"mocha": "mocha -r ts-node/register",
-		"patch": "npm run build & npm version patch & npm publish",
+		"prepublishOnly": "npm run build & npm test & npm version patch",
 		"build": "del-cli dist & tsc --build tsconfig.json",
 		"audit-fix": "npm audit fix --force & npm install",
 		"upgrade": "ncu -u & npm install & npm test"
