@@ -1,6 +1,6 @@
 {
 	"name": "synology-chat-incoming-webhook",
-	"version": "0.0.22",
+	"version": "0.0.23",
 	"private": false,
 	"author": "Kees C. Bakker",
 	"description": "Easy setup of the incoming webhook integration for Synology Chat.",
