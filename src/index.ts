@@ -57,5 +57,6 @@ export {
 	SynoChatFileService,
 	FileServerService,
 	MultiChannelSynoChatFileService,
-	Channel
+	Channel,
+	getIp
 };
