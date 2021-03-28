@@ -2,6 +2,7 @@ import { FileServerService } from "./hosting/FileServerService";
 import { getIp } from "./hosting/ip";
 import { SynoChatFileService } from "./SynoChatFileService";
 import { SynoChatIncomingWebhookService } from "./api/SynoChatService";
+import { MultiChannelSynoChatFileService, Channel } from "./MultiChannelSynoChatFileService";
 
 /**
  * Creates a new Synology Chat File Service.
@@ -55,4 +56,6 @@ export {
 	SynoChatFileService as SynologyChatFileService,
 	SynoChatFileService,
 	FileServerService,
+	MultiChannelSynoChatFileService,
+	Channel
 };

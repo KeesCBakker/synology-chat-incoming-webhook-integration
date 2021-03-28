@@ -45,7 +45,7 @@ It will get the configuration from your environment variables or infer them:
 
 ## Advanced
 Create and configure you own service:
-```js
+```ts
 const { SynoChatFileService } = 'synology-chat-incoming-webhook'
 const chat = new SynoChatFileService(
 	8033,
@@ -54,11 +54,29 @@ const chat = new SynoChatFileService(
 )
 ```
 Or don't use the file server:
-```js
+```ts
 const { SynoChatService } = 'synology-chat-incoming-webhook'
 const chat = new SynoChatService(
 	"{http or https}://{url or ip}/webapi/entry.cgi?api=SYNO.Chat.External&method=incoming&version=2&token=%22{your-token}%22"
 )
+```
+
+If you want to use multiple channels:
+
+```ts
+const { Channel, MultiChannelSynoChatFileService } = 'synology-chat-incoming-webhook'
+const channels = [
+	new Channel("General", "{http or https}://{url or ip}/webapi/entry.cgi?api=SYNO.Chat.External&method=incoming&version=2&token=%22{your-token}%22"),
+	new Channel("Random",  "{http or https}://{url or ip}/webapi/entry.cgi?api=SYNO.Chat.External&method=incoming&version=2&token=%22{your-token}%22"),
+]
+
+const chat = new SynoChatService(channels, 8033, "http://192.168.1.13:8033");
+
+await chat.send("General", "Hellow!");
+await chat.send("Random", {
+	text: "Sending a file url",
+	filePath: "c:\\temp\\my-file.txt"
+});
 ```
 
 ## How to get an incoming webhook
