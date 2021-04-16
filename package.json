@@ -14,7 +14,7 @@
 		"@types/express": "^4.17.11",
 		"@types/tmp": "^0.2.0",
 		"@types/uuid": "^8.3.0",
-		"@types/chai": "^4.2.15",
+		"@types/chai": "^4.2.16",
 		"@types/mocha": "^8.2.2",
 		"@types/node": "^14",
 		"chai": "^4.3.4",
@@ -23,7 +23,7 @@
 		"node-fetch": "^2.6.1",
 		"fetch-mock": "^9.11.0",
 		"ts-node": "^9.1.1",
-		"typescript": "^4.2.3"
+		"typescript": "^4.2.4"
 	},
 	"engines": {
 		"node": "0.10.x"
@@ -35,7 +35,7 @@
 		"build": "del-cli dist & tsc --build tsconfig.json",
 		"audit-fix": "npm audit fix --force & npm install",
 		"upgrade": "ncu -u & npm install & npm test",
-		"upgrade-and-publish": "git checkout master & git pull & ncu -u & npm install & npm publish"
+		"upgrade-and-publish": "git checkout master & git pull & ncu -u & git add . & git commit -m \"package upgrades\" & npm install & npm publish & git push"
 	},
 	"main": "dist/src/index.js",
 	"types": "dist/src/index.d.ts",
