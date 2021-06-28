@@ -34,7 +34,7 @@
 		"prepublishOnly": "npm run build & npm test & npm version patch",
 		"build": "del-cli dist & tsc --build tsconfig.json",
 		"audit-fix": "npm audit fix --force & npm install",
-		"upgrade": "ncu -u & npm install & npm test",
+		"upgrade": "ncu -u & npm audit fix & npm install & npm test",
 		"upgrade-and-publish": "git checkout master & git pull & ncu -u & git add . & git commit -m \"package upgrades\" & npm install & npm publish & git push"
 	},
 	"main": "dist/src/index.js",
